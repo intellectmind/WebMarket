@@ -222,13 +222,8 @@
 
 ---
 
-[/MD]
-
-
 
 [SPOILER="查看可配置项config.yml"]
-
-[CODE]
 
 # 数据库配置
 
@@ -484,13 +479,8 @@ debug:
 
   api_log_level: "INFO" # DEBUG, INFO, WARN, ERROR
 
-[/CODE]
-
 [/SPOILER]
 
-
-
-[MD]
 
 ---
 
