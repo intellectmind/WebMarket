@@ -327,6 +327,17 @@ api:
   host: "0.0.0.0" # 服务器绑定地址，"0.0.0.0" 表示监听所有网络接口
   worker_threads: 4 # API请求处理线程数
   queue_capacity: 1600 # 请求队列容量
+  ssl:
+    enabled: false # 是否启用 HTTPS。关闭时使用普通 HTTP
+    key_store_path: "ssl/keystore.p12" # 证书库路径。可填绝对路径，或相对 plugins/WebMarket/ 的路径
+    key_store_password: "" # 证书库密码
+    key_password: "" # 私钥密码。留空时默认使用 key_store_password
+    key_store_type: "PKCS12" # 证书库类型，例如 PKCS12 / JKS
+    protocol: "TLS" # SSLContext 协议，一般保持 TLS 即可
+
+# 玩家身份（绑定）匹配模式
+player_identity:
+  mode: "uuid" # uuid=按UUID识别（在线服推荐），name=按游戏名识别（离线服推荐）
 
 # Web 前端配置
 # 如需自定义标签logo图标 图片可放在 plugins/WebMarket/web-assets/logo/logo.png
@@ -340,12 +351,12 @@ web:
   use_custom_name_override: true
   # 是否启用后端生成并缓存网页物品图标。生成结果会保存到 plugins/WebMarket/web-assets/generated-icons/
   generated_item_icons:
-    enabled: false
+    enabled: true
     # 注意：开启后，会导致你的 CraftEngine/ItemsAdder 等自定义的图标资源泄露
     # 是否允许为 ItemsAdder 自定义物品生成网页图标
-    itemsadder_enabled: true
+    itemsadder_enabled: false
     # 是否允许为 CraftEngine 自定义物品生成网页图标
-    craftengine_enabled: true
+    craftengine_enabled: false
     # 是否允许从服务端原版资源中提取网页图标
     vanilla_enabled: true
     # 当本地找不到原版资源时，是否尝试从官方 Minecraft 客户端资源下载并缓存
@@ -426,6 +437,7 @@ market:
     tax_rates:
       money: 0.02 # 金币收购成交税率
       points: 0.00 # 点卷收购成交税率（卷按整数结算，税费会取整）
+    max_quantity: 99999 # 单笔收购允许创建的最大数量
     max_requests_per_player: 3 # 每个玩家最多可发布的收购数量
     max_request_duration: 7 # 收购最大持续时间（天）
     request_cooldown_seconds: 1 # 发布收购冷却时间（秒）
@@ -518,8 +530,7 @@ items:
   max_quantity: 2304
   # 价格限制
   min_price: 0.01
-  max_price: 1000000.0
-
+  max_price: 10000000.0
 
 security:
   # API密钥默认有效期（天）
