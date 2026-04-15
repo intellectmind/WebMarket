@@ -20,7 +20,7 @@
 
 - **离线支持**
 
-  玩家离线时，背包数据实时入库，网页端可查看并完成上下架、购买、出售等全部操作。
+  玩家离线时，背包/末影箱数据实时入库，网页端可查看并完成上下架、购买、出售等全部操作。
 
 - **NBT 完整**
 
@@ -64,11 +64,11 @@
 
 ## 🎒 背包管理
 
-- 实时网页查看在线 / 离线玩家背包
+- 实时网页查看在线 / 离线玩家背包/末影箱
 
 - 显示耐久、附魔、Lore、盒内物品
 
-- 一键将背包物品直接出售到市场、拍卖行
+- 一键将背包/末影箱物品直接出售到市场、拍卖行
 
 ---
 
@@ -337,7 +337,7 @@ api:
 
 # 玩家身份（绑定）匹配模式
 player_identity:
-  mode: "uuid" # uuid=按UUID识别（在线服推荐），name=按游戏名识别（离线服推荐）
+  mode: "name" # uuid=按UUID识别（在线服推荐），name=按游戏名识别（离线服推荐）
 
 # Web 前端配置
 # 如需自定义标签logo图标 图片可放在 plugins/WebMarket/web-assets/logo/logo.png
@@ -379,7 +379,7 @@ web:
     # vanilla-cache 目录中文件的最大保留天数，0 表示关闭该目录自动清理
     vanilla_cache_max_age_days: 30
 
-# 跨服配置
+# 跨服配置（测试阶段）
 cross_server:
   enabled: false # 是否启用跨服支持（仅 MySQL 可用，SQLite 下会自动禁用）
   mode: "isolated" # isolated=按服务器隔离（仅聚合商品）, shared=全服互通
@@ -410,6 +410,7 @@ simple_economy:
 # 市场设置
 market:
   enabled: true # 全局玩家市场开关
+  broadcast_create_message: true # 是否在玩家上架市场物品时发送全服可点击通知
   tax_payer: "seller" # 税费承担方：seller=卖家承担（买家按报价支付），buyer=买家承担（买家按报价+税支付）
   tax_rates:
     money: 0.01 # 金币交易税率
@@ -433,6 +434,7 @@ market:
   # 收购功能配置
   buy_request:
     enabled: true # 是否启用收购功能
+    broadcast_create_message: true # 是否在玩家创建收购时发送全服可点击通知
     tax_payer: "seller" # 税费承担方：seller=卖家承担（卖家到账=报价-税），buyer=买家承担（卖家按报价到账）
     tax_rates:
       money: 0.02 # 金币收购成交税率
@@ -452,6 +454,7 @@ market:
 # 拍卖行配置
 auction:
   enabled: true # 全局拍卖行开关
+  broadcast_create_message: true # 是否在玩家创建拍卖时发送全服可点击通知
   tax_payer: "seller" # 税费承担方：seller=卖家承担（买家按报价支付），buyer=买家承担（买家按报价+税支付）
   tax_rates:
     money: 0.03 # 金币拍卖税率
@@ -472,6 +475,8 @@ auction:
 # 离线背包配置
 offline_inventory:
   enabled: true  # 是否启用离线背包
+  ender_chest_display_enabled: true # 是否在网页背包页底部显示末影箱物品
+  ender_chest_offline_enabled: true # 是否启用末影箱离线快照显示/离线出售与拍卖
 
 # 官方商店配置
 official_shop:
