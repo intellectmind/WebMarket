@@ -1,278 +1,175 @@
 # WebMarket
 
+**其他语言版本: [English](README_EN.md)，[中文](README.md)。**
+
 [Demo video](https://www.youtube.com/watch?v=tvTJZuOYvno) /
 [Demo site](https://sd.kurt6.cn)
 
-## Free / Paid Version Comparison
+Powerful Minecraft web market plugin with a basic free edition and a full paid edition.
 
-[Purchase link](https://www.patreon.com/posts/154367931) /
-[afdian link](https://afdian.com/item/ab436e0484a511f0882b52540025c377)
+Supports Paper / Folia / Spigot / Bukkit / Purpur on `1.20+`.
 
-| Feature                         | Free Version | Paid Version |
-|---------------------------------|--------------|--------------|
-| Basic Global Market (Player Market, limited to 100 items) | Supported     | Supported    |
-| Offline Operation               | Supported     | Supported    |
-| In-game GUI                     | Not Supported | Supported    |
-| Buy Request System              | Not Supported | Supported    |
-| Auction House                   | Not Supported | Supported    |
-| Official Shop Sell / Buy Back   | Not Supported | Supported    |
-| Buff Shop                       | Not Supported | Supported    |
-| Special Items / Perks Area      | Not Supported | Supported    |
-| Cross-server Functionality      | Not Supported | Supported    |
-| Player Personalization (Permission Group Support) | Not Supported | Supported    |
-| Points Trading                  | Not Supported | Supported    |
+The free edition focuses on the core web market, inventory viewing, pending claims, trade logs, account, and economy flows, with a maximum of 100 concurrent player-market listings and no points-based trading. The paid edition adds GUI, buy requests, auctions, official shop modules, buff shop, special-item / perk areas, and cross-server features.
 
 ---
 
-Feature-rich Minecraft web market plugin, offering a basic free version and a full-featured paid version. The web interface is compatible with mobile display.
+## Free vs Paid
 
-Supports 1.20+ Paper / Folia / Spigot / Bukkit / Purpur servers.
+[Purchase link](https://www.patreon.com/posts/154367931)
 
-The free version focuses on the basic web market, inventory viewing, claiming, transaction logs, accounts, and economy capabilities. Players can list a maximum of 100 items simultaneously in the player market, and points trading is not supported. The paid version additionally offers GUI, buy requests, auctions, official shop, Buff shop, special items area, and cross-server capabilities.
-
-The web interface supports displaying custom item icons for some ItemsAdder, CraftEngine, vanilla, and mod items; in-game GUI is a paid version feature.
-
-Supports PlayerPoints and Vault currency trading. The free version only supports currency trading; points trading is exclusive to the paid version. The paid version's basic market, buy requests, auctions, official shop, Buff shop, and special items shop all support independent pricing and settlement.
-
-Supports usage in hybrid modpacks (mod item icon resources and localization may not be fully retrieved, requiring manual addition in the web directory; an included EXE tool can automatically complete some resource additions).
-
----
-
-## Key Features
-
-- **Offline Support**
-
-  When players are offline, inventory/ender chest data is stored in real-time, allowing the web interface to view and perform basic market operations.
-
-- **Full NBT**
-
-  Durability info, enchantments, enchantment book effects, potion effects, custom names, detailed information of items inside containers (shulker boxes, bundles) are all preserved and displayed on the web page. Supports prioritizing custom-named image resources, falling back to displaying the item's material image if not found (automatically excludes player-named items).
-
-- **Container Listing**
-
-  One-click listing of entire boxes/bundles, with real-time preview of items inside the container on the web page; the paid version's in-game GUI also supports container preview.
-
-- **Official Shop Dynamic Pricing (Paid Version)**
-
-  Calculation formula: Dynamic Price = Base Price × (1 + sigmoid(3-day trend) × Sensitivity × Trend Weight)
-
-- **Buff Shop + Special Items/Perks Area (Paid Version)**
-
-  The Buff shop allows purchasing buffs per second, requiring the player to be online.
-
-  In the Special Items/Perks area, upon purchase, one or more custom commands are executed, supporting the {player} variable, convenient for purchasing perks.
-
-  After creating a special item, accounts with admin privileges can directly modify all information on the web page.
-
-- **Buy Request (Paid Version)**
-
-  Can be created in two ways:
-
-  ① Via the command `/sg <quantity> <unit price>` while holding the item.
-  ② Directly create the buy request on the web page.
+| Feature | Free Edition | Paid Edition |
+|---|---|---|
+| Core global market (player market, 100 listing cap) | Yes | Yes |
+| Points currency trading | No | Yes |
+| Offline operations | Yes | Yes |
+| In-game GUI interface | No | Yes |
+| Buy request system | No | Yes |
+| Auction house | No | Yes |
+| Official shop sell / buyback | No | Yes |
+| Buff shop | No | Yes |
+| Special item / perk shop | No | Yes |
+| Cross-server features | No | Yes |
+| Per-player permission-group overrides | No | Yes |
 
 ---
 
-## 🛒 Module Description
+## Highlights
 
-| Module               | Version                 | Description                                                                                                                               |
-|----------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Player Trading Market| Free / Paid             | Players freely list/buy others' items, supports custom transaction taxes, whitelist/blacklist modes.                                      |
-| Buy Request          | Paid                    | Players can post buy requests to be fulfilled by other players.                                                                          |
-| Auction House        | Paid                    | Auction area, supports custom transaction taxes, whitelist/blacklist modes.                                                               |
-| Official Shop        | Paid                    | Official Sell Area & Official Buyback Area & Buff Area & Special Items Area, official sell/buyback areas can enable dynamic pricing system. |
+- Offline support
+  Players can still use the core market and inventory-related web flows while offline.
 
----
+- Full NBT preservation
+  Durability, enchants, potion effects, custom names, lore, shulker box contents, bundle contents, and more are preserved and displayed on the web page.
 
-## 🎒 Inventory Management
+- Container listing
+  Entire boxes / bundles can be listed directly, with web preview support.
 
-- Real-time web viewing of online/offline player inventory/ender chest.
-- Displays durability, enchantments, Lore, items inside containers.
-- One-click selling of inventory/ender chest items directly to the market; paid version also supports related auction flows.
+- Official shop dynamic pricing (Paid)
+  Dynamic pricing can adjust item prices based on recent transaction trends.
 
----
+- Buff shop and special item / perk area (Paid)
+  Buffs can be sold by seconds. Special items can execute one or more custom commands with variables such as `{player}`.
 
-## 🏆 Leaderboards
-
-| Leaderboard     | Description                         |
-|-----------------|-------------------------------------|
-| Wealth Leaderboard | Server's richest players.           |
-| Trade Leaderboard  | Players with the highest transaction volume. |
-| Sell Leaderboard   | Players who have sold the most.       |
-| Buy Leaderboard    | Players who have bought the most.     |
+- Mixed modpack compatibility
+  Works with vanilla, modded, hybrid-server resources, and partial custom icon sources such as ItemsAdder / CraftEngine.
 
 ---
 
-## 🔐 Account System
+## Modules
 
-- Supports AuthMe, login via game name or email. Account automatically binds upon login and cannot be unbound.
-- In-game command `/wm register <email> <password> [username]` registers a web account, automatically binding it (unbindable). Username is optional, defaults to game name.
-- Web page email registration requires manual binding to a game account, can be unbound.
-- API key for authentication-free login.
+| Module | Edition | Description |
+|---|---|---|
+| Player Market | Free / Paid | Player-to-player listing and buying with configurable tax and whitelist / blacklist rules |
+| Buy Requests | Paid | Players can post buy orders and let others fulfill them |
+| Auction House | Paid | Auction area with configurable tax and item restrictions |
+| Official Shop | Paid | Official selling area, buyback area, buff area, and special-item area |
 
 ---
 
-## Command List
+## Backpack / Inventory
 
-All commands start with `/wm`. You can also omit `/wm` and use shorthand commands.
+- View online or offline player inventory and ender chest from the web page
+- Display durability, enchants, lore, and container contents
+- Sell inventory or ender chest items directly to market / auction
 
-| Command <required> [optional] | Description |
+---
+
+## Account System
+
+- Supports AuthMe login by player name or email
+- Supports in-game registration with `/wm register <email> <password> [username]`
+- Supports web registration and Minecraft account binding
+- Supports API-key-based login
+
+---
+
+## Common Commands
+
+All commands support the `/wm` prefix. Some also have short aliases.
+
+| Command | Description |
 |---|---|
-| `/wm`, `/wm gui`, `/market` | Opens the in-game shop GUI. Can be disabled via permission node `webmarket.gui`. |
-| `/wm help` | View help for commands available to your permissions. |
-| `/wm bind <verification_code>` | Bind web account to game account. |
-| `/wm register <email> <password> [username]` | Register web account in-game, automatically binds (unbindable). Username optional, defaults to game name. |
-| `/wm claim` | Claim items purchased from the web (used by offline players or online players with full inventory). |
-| `/wm sj <quantity> <unit price> [currency/points]` | Quickly list the item in hand (player use, batch listing possible). |
-| `/wm sg <quantity> <unit price> [currency/points]` | Quickly create a buy request for the item in hand (player use). |
-| `/wm pm <quantity> <starting bid> <time(1-48 hours)> [buyout price] [currency/points]` | Quickly auction the item in hand (player use, batch auction possible). |
-| `/wm sell <unit price> [personal limit] [total stock] [personal limit reset period h] [currency/points] [cross-server/this-server]` | OP only: Add the item in hand to the Official Shop sell area (full NBT recorded, recommend holding 1 item). Default this-server only; add `cross-server` to allow purchase from other servers. Personal limit: leave empty or -1 for unlimited. Total stock: leave empty or -1 for unlimited. Reset period: hours, 0 or empty for no reset. |
-| `/wm recycle <unit price> [personal limit] [total buyback] [personal limit reset period h] [currency/points] [cross-server/this-server]` | OP only: Add the item in hand to the Official Shop buyback area (full NBT recorded, recommend holding 1 item). Default this-server only; add `cross-server` to allow buyback from other servers. Personal limit: leave empty or -1 for unlimited. Total buyback: leave empty or -1 for unlimited. Reset period: hours, 0 or empty for no reset. |
-| `/wm buff <buff type> <level> <price per second> [minimum seconds] [maximum seconds] [personal limit seconds] [total stock seconds] [reset period h] [currency/points] [cross-server/this-server]` | OP only: Add item to Official Shop Buff area. Default this-server only; add `cross-server` to allow purchase from other servers. Type `/buff` in-game for detailed help. |
-| `/wm specialitem <name> <description> <price> <icon material> <command1 command2 ...> [personal limit] [total stock] [reset period h] [currency/points] [cross-server/this-server]` | OP only: Add item to Official Shop Special Items area. Default this-server only; add `cross-server` to allow purchase from other servers. Supports {player} variable, separate multiple commands with `\|`. Type `/specialitem` in-game for detailed help. |
-| `/wm root <email>` | OP only: Grant admin privileges to specified email user (can remove any player's items, delete official shop items). |
-| `/wm unroot <email>` | OP only: Remove admin privileges from specified email user. |
-| `/wm resetpassword <email>` | OP only: Reset password for specified email user. User can change password on web page later. |
-| `/wm marketlogs me` | Query own transaction logs. Filters: `-type:` (buy, sell, list, delist, auction, request, buff, special, shop, all), `-time:` (today, yesterday, week, month, custom:yyyy-MM-dd, custom:yyyy-MM-dd:yyyy-MM-dd). |
-| `/wm marketlogs <player name> [page] [filters]` | OP only: Query specified player's transaction logs. Filters same as above. Type `/marketlogs` in-game for GUI. |
-| `/wm marketlogs-material <item material> [page] [filters]` | OP only: Query transaction logs for specified item material. Filters: `-type:` (market, auction, buy_request, official_buy, official_sell, all), `-time:` (today, yesterday, week, month, custom:yyyy-MM-dd, custom:yyyy-MM-dd:yyyy-MM-dd). Type `/marketlogs-material` in-game for GUI. |
-| `/wm restrict` | OP only: Restrict specific players from creating market listings, buy requests, or auctions. Type `/restrict` in-game for detailed help. |
-| `/wm blockitem` | OP only: Block the item in hand from being listed, used in buy requests, or auctions, preventing certain menu items from being listed. Type `/blockitem` in-game for detailed help. |
-| `/wm iconcache` | OP only: Manage WebMarket's automatically generated web icon cache, including viewing status, clearing cache, and cleaning expired cache. |
+| `/wm`, `/wm gui`, `/market` | Open the in-game market GUI |
+| `/wm help` | Show available command help |
+| `/wm bind <code>` | Bind web account to Minecraft account |
+| `/wm register <email> <password> [username]` | Register a web account in-game |
+| `/wm claim` | Claim pending items |
+| `/wm sj <amount> <unit_price> [money/points]` | Quick list the held item |
+| `/wm sg <amount> <unit_price> [money/points]` | Quick create a buy request |
+| `/wm pm <amount> <start_price> <hours> [buyout] [money/points]` | Quick create an auction |
+| `/wm sell ...` | Admin command for official shop selling area |
+| `/wm recycle ...` | Admin command for official buyback area |
+| `/wm buff ...` | Admin command for buff shop |
+| `/wm specialitem ...` | Admin command for special-item / perk shop |
+| `/wm marketlogs ...` | Query player trade logs |
+| `/wm marketlogs-material ...` | Query material trade logs |
+| `/wm restrict` | Restrict player access to market / buy request / auction features |
+| `/wm blockitem` | Block specific NBT items from listing / auction / buy request creation |
+| `/wm iconcache` | Manage generated web icon cache |
 
-| Built-in Economy Commands `/wm money` (also `/wm bal`) | Description |
-|---|---|
-|`/wm money help` | View WebMarket economy system help. |
-|`/wm money` | View balance. |
-|`/wm money <player>` | View another player's balance. |
-|`/wm money pay <player> <amount> [reason]` | Transfer funds. |
-|`/wm money top [page]` | Wealth leaderboard. |
-|`/wm money history [player] [page]` | Transaction history. |
-|`/wm money set <player> <amount> [reason]` | OP only: Set balance. |
-|`/wm money give <player> <amount> [reason]` | OP only: Give money. |
-|`/wm money take <player> <amount> [reason]` | OP only: Take money. |
+For the full command reference and parameter details, see [README.md](./README.md).
 
 ---
 
-## Permission Nodes
+## Cross-Server
 
-| Node | Purpose |
-|---|---|
-| `webmarket.sell` | Use `/sell` |
-| `webmarket.recycle` | Use `/recycle` |
-| `webmarket.root` | Use `/root` and `/unroot` |
-| `webmarket.resetpassword` | Use `/resetpassword` |
-| `webmarket.marketlogs` | Use `/marketlogs` and `/marketlogs-material` |
-| `webmarket.marketlogs.self` | Query own transaction logs (`/marketlogs me` or GUI without args) |
-| `webmarket.restrict` | Use `/restrict` |
-| `webmarket.buff` | Use `/buff` |
-| `webmarket.specialitem` | Use `/specialitem` |
-| `webmarket.blockitem` | Use `/blockitem` |
-| `webmarket.iconcache` | Use `/iconcache` |
-| `webmarket.gui` | Use `/wm gui` |
-| `webmarket.use` | Basic command permissions. |
-| `webmarket.publish.points` | Allow listing points items/points buy requests/points auctions. Open by default without LuckPerms; managed by permissions plugin if installed. |
-| `webmarket.money.balance` | View own balance. |
-| `webmarket.money.others` | View other players' balances. |
-| `webmarket.money.pay` | Transfer to other players. |
-| `webmarket.money.top` | View wealth leaderboard. |
-| `webmarket.money.history` | View own transaction history. |
-| `webmarket.money.history.others` | View other players' transaction history. |
-| `webmarket.money.admin` | Admin economy commands (set/give/take). |
+The `cross_server` section in `config.yml` controls cross-server behavior.
+
+- Cross-server mode requires `MySQL`
+- `isolated`: markets are separated by server
+- `shared`: markets are shared across servers
+- Optional item sync / economy sync / transaction sync can be configured
+- Master server settings are supported for shared mode
 
 ---
 
-## PlaceholderAPI Placeholders
+## Activation
 
-After installing `PlaceholderAPI`, the plugin automatically registers `%webmarket_*%` placeholders.
+### Free Edition
 
-Currently supported wealth/balance-related placeholders:
+- No activation code required
 
-| Placeholder | Description |
-|---|---|
-| `%webmarket_balance%` | Current player's currency balance, raw number format. |
-| `%webmarket_balance_formatted%` | Current player's currency balance, formatted using the economy system. |
-| `%webmarket_rank%` | Player's rank on the wealth leaderboard, returns `0` if not on the board. |
-| `%webmarket_top_1_name%` | Name of the #1 player on the wealth leaderboard. |
-| `%webmarket_top_1_player%` | Same as `%webmarket_top_1_name%`. |
-| `%webmarket_top_1_balance%` | Balance of the #1 player on the wealth leaderboard, raw number format. |
-| `%webmarket_top_1_balance_formatted%` | Balance of the #1 player on the wealth leaderboard, formatted. |
-| `%webmarket_top_1_rank%` | Returns the rank number itself, e.g., `1` for 1st place. |
+### Paid Edition
 
-Note:
-- Replace `1` with any rank number, e.g., `%webmarket_top_5_name%`, `%webmarket_top_10_balance%`.
-- Placeholders are currently based on the currency wealth leaderboard, not including points.
-- To avoid frequent database scans during scoreboard refreshes, wealth leaderboard placeholders use caching; cache time is configurable via `placeholderapi.wealth_cache_seconds`, default `60` seconds. Setting to `0` disables caching, each request triggers an async refresh.
+1. Purchase the paid edition
+2. Get the activation code from the developer
+3. Put the code into `activation_code` in `config.yml`
+
+If paid-edition license validation fails, the plugin will stop instead of continuing in a downgraded mode.
 
 ---
 
-## Player Personalization (Permission Group Support, Paid Version)
+## Configuration
 
-Set listing limits, tax rates, validity days, etc., for players via permission groups:
+The plugin uses `config.yml` as its main configuration file.
 
-### Sell System
+Key sections include:
 
-- `webmarket.limit.market.sell.max_listings.<number>`
-  Max listing count.
-- `webmarket.limit.market.sell.max_duration_days.<days>`
-  Max duration in days.
-- `webmarket.tax.market.sell.money.<rate>`
-  Currency sell tax rate.
-- `webmarket.tax.market.sell.points.<rate>`
-  Points sell tax rate.
+- `database`
+- `api`
+- `web`
+- `cross_server`
+- `market`
+- `auction`
+- `official_shop`
+- `offline_inventory`
+- `simple_economy`
+- `security`
+- `authme_login`
 
-### Buy Request System
-
-- `webmarket.limit.market.buy.max_requests.<number>`
-  Max buy request count.
-- `webmarket.limit.market.buy.max_duration_days.<days>`
-  Max duration in days.
-- `webmarket.tax.market.buy.money.<rate>`
-  Currency buy request tax rate.
-- `webmarket.tax.market.buy.points.<rate>`
-  Points buy request tax rate.
-
-### Auction House
-
-- `webmarket.limit.auction.max_listings.<number>`
-  Max auction count.
-- `webmarket.limit.auction.max_duration_hours.<hours>`
-  Max auction duration in hours.
-- `webmarket.tax.auction.money.<rate>`
-  Currency auction tax rate.
-- `webmarket.tax.auction.points.<rate>`
-  Points auction tax rate.
+For the full configuration example, see [README.md](./README.md) or the generated `config.yml` in the plugin resources.
 
 ---
 
-## Cross-server Configuration
+## PlaceholderAPI
 
-In `config.yml`, use `cross_server` to control cross-server behavior:
+After installing `PlaceholderAPI`, the plugin registers `%webmarket_*%` placeholders such as:
 
-- Cross-server functionality only supports **MySQL**. If `database.type` is not `MySQL`, cross-server is automatically disabled at runtime even if `cross_server.enabled: true`.
-- `cross_server.mode`: `isolated` = market/auction data isolated per server; `shared` = market/auction data shared across servers, purchased items go to a claiming area.
-- `cross_server.server_name`: Unique identifier for the current server.
-- `cross_server.server_aliases`: List of old names for the current server. After changing `server_name`, add old names here for compatibility with old offline inventory keys and old `server_name` data.
-- `cross_server.master_server_name`: In `shared` mode, the name of the master server; market/auction configurations are synced from the master server.
-- `cross_server.item_sync_enabled`: Whether to enable external cross-server item sync. When disabled, the plugin manages its own server-isolated offline inventory; when enabled, the plugin stops relying on its own offline inventory snapshots and disables some player offline item operations to avoid conflicts with external sync solutions.
-- `cross_server.known_servers`: List of known servers for server selection dropdowns in the web UI and GUI.
-- After enabling cross-server, certain global tasks like dynamic price resets/daily refreshes are only executed by the server designated as `master_server_name` to avoid duplicate updates across multiple servers.
-
----
-
-## Purchase and Activation
-
-1. Purchase on Afdian.
-2. Send your Afdian order number to QQ `1758426625` or email `1758426625@qq.com` to receive an activation code.
-3. Fill in the activation code in the `activation_code` field in `config.yml` to use the plugin.
-
----
-
-## Purchase Notes
-
-1. Plugin usage requires an activation code. Each activation code is limited to one IP address at a time.
-2. If activation fails after changing IP, please wait at least 40 minutes before trying again.
-3. If your activation code is abused, the developer has the right to disable it.
+- `%webmarket_balance%`
+- `%webmarket_balance_formatted%`
+- `%webmarket_rank%`
+- `%webmarket_top_1_name%`
+- `%webmarket_top_1_balance%`
 
 ---
 
@@ -282,19 +179,19 @@ In `config.yml`, use `cross_server` to control cross-server behavior:
 
 ---
 
-## Configuration File
+## 配置文件
 
 ```yaml
-activation_code: "" # Activation code
+activation_code: "" # License key
 
-# Plugin language configuration
-# Options: zh_cn, en_us
-language: "zh_cn"
+# Plugin language
+# Available values: zh_cn, en_us
+language: "en_us"
 
-# Database configuration
+# Database settings
 database:
   type: "SQLite" # SQLite or MySQL
-  # MySQL configuration (use for high player counts, requires 8.0+)
+  # MySQL settings (recommended for larger servers, requires 8.0+)
   host: "localhost"
   port: 3306
   database: "webmarket"
@@ -309,245 +206,250 @@ database:
     max_lifetime: 1800000
     leak_detection_threshold: 60000
 
-# API server configuration
+# API / Web server settings
 api:
-  enabled: true # Whether to enable HTTP API / Web service
-  enable_on_secondary_shared_server: false # Whether secondary servers in shared mode also start HTTP service; usually only master needs it
-  port: 8880 # Server listening port
-  host: "0.0.0.0" # Server binding address, "0.0.0.0" listens on all interfaces
-  worker_threads: 4 # Number of threads for API request processing
+  enabled: true # Enable the HTTP API / Web service
+  enable_on_secondary_shared_server: false # Whether secondary servers also start HTTP in shared mode; usually only the primary server needs it
+  port: 8880 # Listening port
+  host: "0.0.0.0" # Bind address; "0.0.0.0" listens on all network interfaces
+  worker_threads: 4 # Request worker thread count
   queue_capacity: 1600 # Request queue capacity
   ssl:
-    enabled: false # Whether to enable HTTPS. If false, uses plain HTTP.
-    key_store_path: "ssl/keystore.p12" # Keystore path. Absolute path or path relative to plugins/WebMarket/
+    enabled: false # Enable HTTPS. When false, plain HTTP is used
+    key_store_path: "ssl/keystore.p12" # Keystore path; absolute path or relative to plugins/WebMarket/
     key_store_password: "" # Keystore password
-    key_password: "" # Private key password. If empty, defaults to key_store_password
-    key_store_type: "PKCS12" # Keystore type, e.g., PKCS12 / JKS
-    protocol: "TLS" # SSLContext protocol, generally keep as TLS
+    key_password: "" # Private key password; defaults to key_store_password when empty
+    key_store_type: "PKCS12" # Keystore type, for example PKCS12 / JKS
+    protocol: "TLS" # SSLContext protocol, usually leave as TLS
 
-# Player identity (binding) matching mode
+# Player identity matching mode for bindings
 player_identity:
-  mode: "name" # uuid = identify by UUID (recommended for online-mode servers), name = identify by game name (recommended for offline-mode servers)
+  mode: "name" # uuid=identify by UUID (recommended for online-mode servers), name=identify by player name (recommended for offline-mode servers)
 
-# Web frontend configuration
-# To customize logo icon, place image in plugins/WebMarket/web-assets/logo/logo.png
+# Web frontend settings
+# Custom logo icon path: plugins/WebMarket/web-assets/logo/logo.png
 web:
   # Website logo text
   logo_text: 'WebMarket'
-  # Whether to prioritize using custom name image resources. Place in plugins/WebMarket/web-assets/custom-images/<custom_name>.png (without color codes)
-  # When enabled, prioritizes images for custom-named items, falling back to item material image if not found (excluding player-named items)
+  # Prefer custom-name item images from plugins/WebMarket/web-assets/custom-images/<CustomName>.png without color codes
+  # When enabled, custom named item images are used first, then fall back to material images (excluding player-renamed items)
   use_custom_name_image: true
-  # Whether to allow custom names to override material names. When enabled, displays custom name primarily, no longer showing "Custom Name" line (excluding player-named items)
+  # Allow custom names to override the material display name; when enabled the extra "custom name" line is hidden (excluding player-renamed items)
   use_custom_name_override: true
-  # Whether to enable backend generation and caching of web item icons. Results saved to plugins/WebMarket/web-assets/generated-icons/
+  # Generate and cache item icons on the backend; output goes to plugins/WebMarket/web-assets/generated-icons/
+  # Keeping vanilla resource download enabled is recommended
   generated_item_icons:
     enabled: true
-    # Note: Enabling this may leak icon resources from CraftEngine/ItemsAdder etc.
-    # Whether to allow generating web icons for ItemsAdder custom items
+    # Warning: enabling this can expose icon resources from custom item plugins such as CraftEngine / ItemsAdder
+    # Allow generating web icons for ItemsAdder custom items
     itemsadder_enabled: false
-    # Whether to allow generating web icons for CraftEngine custom items
+    # Allow generating web icons for CraftEngine custom items
     craftengine_enabled: false
-    # Whether to allow extracting web icons from server vanilla resources
+    # Allow extracting vanilla icons from server resources
     vanilla_enabled: true
-    # Whether to attempt downloading from official Minecraft client resources and cache them if local vanilla resources are missing
+    # When local vanilla assets are missing, try downloading and caching them from the official Minecraft client resources
     vanilla_download_enabled: true
-    # Vanilla client download source list. Tried in order, official source used as final fallback.
-    # Provide base address for each source; the program automatically appends Mojang/Piston paths.
+    # Vanilla client download mirror list. Tried in order, with Mojang as the final fallback.
+    # Each entry should be a base URL. Mojang/Piston paths are appended automatically.
     vanilla_download_sources:
       - "https://bmclapi2.bangbang93.com"
       - "https://launchermeta.mojang.com"
-    # Whether to allow extracting web icons and model overrides from world datapacks
+    # Allow extracting icon/model overrides from world datapacks
     datapack_enabled: true
-    # Whether to allow extracting web icons from hybrid modpack mods resources
+    # Allow extracting icon assets from hybrid-server mod resources
     hybrid_mod_enabled: true
-    # Whether to output debug logs for CE/IA/resource hits
+    # Output debug logs for CE/IA/resource matches
     debug_logging: false
-    # Whether to enable automatic cleanup of icon cache files
+    # Enable automatic cleanup for icon cache files
     cleanup_enabled: true
-    # Maximum age in days for files in generated-icons directory, 0 disables automatic cleanup for this directory
+    # Max retention days for files under generated-icons. 0 disables automatic cleanup for this directory
     generated_icons_max_age_days: 0
-    # Maximum age in days for files in vanilla-cache directory, 0 disables automatic cleanup for this directory
-    vanilla_cache_max_age_days: 30
+    # Max retention days for files under vanilla-cache. 0 disables automatic cleanup for this directory
+    vanilla_cache_max_age_days: 90
 
-# Cross-server configuration
+# Cross-server settings
 cross_server:
-  enabled: false # Whether to enable cross-server support (MySQL only, automatically disabled with SQLite)
-  mode: "isolated" # isolated = isolate by server (only aggregate items), shared = full cross-server sharing
-  server_name: "server-1" # Unique name for the current server
-  server_aliases: [] # List of old server name aliases. Add old names here after changing server_name for compatibility with old offline inventory and old server_name records
-  master_server_name: "server-1" # Master server name
-  item_sync_enabled: false # Whether an external cross-server item sync solution is installed. Enabling disables the plugin's built-in offline inventory snapshot mechanism: no longer saves/restores offline inventory and prevents players from performing operations that require direct inventory item removal while offline (e.g., market listing, auction creation, selling to buy requests, official shop buyback)
-  economy_sync_enabled: false # Whether economy balance is shared across servers. In isolated mode, when set to false, currency balance and wealth leaderboard are stored and counted independently per server; points read directly from local PlayerPoints, unaffected by this config.
-  transaction_sync_enabled: false # Whether transaction statistics are shared across servers. In isolated mode, when set to false, leaderboard trade/sell/buy statistics are isolated per server.
-  known_servers: # List of servers selectable in frontend/GUI
+  enabled: false # Enable cross-server support (MySQL only; automatically disabled on SQLite)
+  mode: "isolated" # isolated=server-isolated data with aggregated listings, shared=fully shared across servers
+  server_name: "server-1" # Unique name of this server
+  server_aliases: [] # Old server-name aliases; useful after renaming server_name to keep old offline inventory / server records compatible
+  master_server_name: "server-1" # Primary server name
+  item_sync_enabled: false # Whether an external cross-server inventory sync solution is installed. When enabled, the plugin's offline inventory snapshot system is disabled and offline actions that require direct inventory deduction are blocked
+  economy_sync_enabled: false # Whether money balance is shared across servers. In isolated mode, false means money balance and wealth leaderboards are stored per server; PlayerPoints always reads the local server value
+  transaction_sync_enabled: false # Whether trade statistics are shared across servers. In isolated mode, false keeps transaction / sell / buy leaderboards separated per server
+  known_servers: # Selectable server list for the web UI / GUI
     - "server-1"
 
-# Built-in economy system configuration
+# Built-in economy settings
 simple_economy:
-  # For cross-server, it's recommended to use the built-in economy first
-  # Whether to enable built-in Vault economy system (used when no external economy plugin like CMI, Essentials is present)
-  # If you have an external economy plugin but enable this, the plugin will still use the built-in economy for processing.
-  # You can also disable CMI's economy and enable this plugin's economy; both are compatible.
+  # For cross-server setups, the built-in economy is usually the better choice
+  # Enable the built-in Vault economy when no external economy plugin is installed (such as CMI / EssentialsX)
+  # If enabled while an external economy plugin exists, WebMarket still uses the built-in economy
+  # You may also disable CMI economy and use this plugin's economy instead
   enabled: false
   starting_balance: 100.0  # Initial balance for new players
   max_balance: 999999999.0  # Maximum balance limit
   min_transfer: 0.01  # Minimum transfer amount
-  currency_singular: "金币"  # Currency singular name
-  currency_plural: "金币"    # Currency plural name
-  # Transaction history retention days (-1 for permanent)
+  currency_singular: "Coins"  # Singular currency name
+  currency_plural: "Coins"    # Plural currency name
+  # Transaction history retention days (-1 = keep forever)
   transaction_history_days: 30
 
 # Market settings
 market:
   enabled: true # Global player market switch
-  broadcast_create_message: true # Whether to send a clickable global notification when a player lists an item
-  tax_payer: "seller" # Tax bearer: seller = seller pays (buyer pays listed price), buyer = buyer pays (buyer pays listed price + tax)
+  broadcast_create_message: true # Broadcast a clickable server-wide message when a player lists a market item
+  tax_payer: "seller" # Tax payer: seller=buyer pays quoted price, buyer=buyer pays quoted price + tax
   tax_rates:
-    money: 0.01 # Currency transaction tax rate
-    points: 0.00 # Points transaction tax rate (points settled as integers, non-zero tax rate rounds to integer tax amount)
-  max_items_per_page: 24 # Number of items loaded per page
+    money: 0.01 # Money trade tax rate
+    points: 0.00 # Points trade tax rate (points settle as integers; non-zero tax is rounded to an integer)
+  max_items_per_page: 24 # Items loaded per incremental page request
   max_listing_duration: 14 # Maximum listing duration in days
-  max_listings_per_player: 10 # Maximum listings per player
+  max_listings_per_player: 10 # Maximum active listings per player
   listing_cooldown_seconds: 1 # Listing cooldown in seconds
   # Item listing restrictions
   item_restrictions:
-    # Item restriction mode:
-    # - "none": No restrictions (default)
-    # - "whitelist": Only allow items in the list
-    # - "blacklist": Block items in the list
+    # Restriction mode:
+    # - "none": no restriction (default)
+    # - "whitelist": only listed items can be listed
+    # - "blacklist": listed items cannot be listed
     mode: "none"
-    # Restriction list (determined by mode)
+    # Restriction list (acts as whitelist or blacklist depending on mode)
     items:
+      # Item ID format: minecraft:item_id or ITEM_ID
       - "minecraft:bedrock"
       - "minecraft:command_block"
-  # Buy request configuration
+  # Buy request settings
   buy_request:
-    enabled: true # Whether to enable buy request functionality
-    broadcast_create_message: true # Whether to send a clickable global notification when a player creates a buy request
-    tax_payer: "seller" # Tax bearer: seller = seller pays (seller receives price - tax), buyer = buyer pays (seller receives listed price)
+    enabled: true # Enable buy requests
+    broadcast_create_message: true # Broadcast a clickable server-wide message when a player creates a buy request
+    tax_payer: "seller" # Tax payer: seller=seller receives quote - tax, buyer=seller receives quoted price
     tax_rates:
-      money: 0.02 # Currency buy request transaction tax rate
-      points: 0.00 # Points buy request transaction tax rate (points settled as integers, tax rounds)
-    max_quantity: 99999 # Maximum quantity for a single buy request
-    max_requests_per_player: 3 # Maximum buy requests per player
-    max_request_duration: 7 # Maximum buy request duration in days
-    request_cooldown_seconds: 1 # Buy request creation cooldown in seconds
+      money: 0.02 # Money buy-request trade tax rate
+      points: 0.00 # Points buy-request tax rate (integer settlement; tax is rounded)
+    max_quantity: 99999 # Maximum quantity allowed in a single buy request
+    max_requests_per_player: 3 # Maximum active buy requests per player
+    max_request_duration: 7 # Maximum request duration in days
+    request_cooldown_seconds: 1 # Buy request publish cooldown in seconds
     # Buy request item restrictions
     item_restrictions:
       mode: "none" # none, whitelist, blacklist
+      # Restriction list (acts as whitelist or blacklist depending on mode)
       items:
         - "minecraft:bedrock"
         - "minecraft:command_block"
 
-# Auction house configuration
+# Auction settings
 auction:
-  enabled: true # Global auction house switch
-  broadcast_create_message: true # Whether to send a clickable global notification when a player creates an auction
-  tax_payer: "seller" # Tax bearer: seller = seller pays (buyer pays listed price), buyer = buyer pays (buyer pays listed price + tax)
+  enabled: true # Global auction switch
+  broadcast_create_message: true # Broadcast a clickable server-wide message when a player creates an auction
+  tax_payer: "seller" # Tax payer: seller=buyer pays quoted price, buyer=buyer pays quoted price + tax
   tax_rates:
-    money: 0.03 # Currency auction tax rate
-    points: 0.00 # Points auction tax rate (points settled as integers, tax rounds)
-  max_items_per_page: 24 # Number of items loaded per page
+    money: 0.03 # Auction money tax rate
+    points: 0.00 # Auction points tax rate (integer settlement; tax is rounded)
+  max_items_per_page: 24 # Items loaded per incremental page request
   max_listings_per_player: 10 # Maximum concurrent auctions per player
   listing_cooldown_seconds: 1 # Listing cooldown in seconds
   max_duration_hours: 48 # Maximum auction duration in hours
-  # Auction listing restrictions
+  # Auction item restrictions
   item_restrictions:
     mode: "none" # none, whitelist, blacklist
+    # Restriction list (acts as whitelist or blacklist depending on mode)
     items:
+      # Item ID format: minecraft:item_id or ITEM_ID
       - "minecraft:bedrock"
       - "minecraft:command_block"
 
-# Offline inventory configuration
+# Offline inventory settings
 offline_inventory:
-  enabled: true  # Whether to enable offline inventory
-  ender_chest_display_enabled: true # Whether to display ender chest items at the bottom of the web inventory page
-  ender_chest_offline_enabled: true # Whether to enable ender chest offline snapshot display/offline selling & auction
+  enabled: true  # Enable offline inventory support
+  ender_chest_display_enabled: true # Show ender chest items at the bottom of the web inventory page
+  ender_chest_offline_enabled: true # Enable ender chest offline snapshot display / offline sell / offline auction
 
-# Official shop configuration
+# Official shop settings
 official_shop:
-  # Dynamic pricing system configuration
+  # Dynamic pricing settings
   dynamic_pricing:
-    # Whether to enable the dynamic pricing system
-    # Uses 3-day weighted average and sigmoid function for smooth changes
-    # Dynamic Price = Base Price × (1 + sigmoid(3-day trend) × Sensitivity × Trend Weight)
+    # Enable the dynamic pricing system
+    # Uses a 3-day weighted average and a sigmoid curve to smooth changes
+    # Dynamic price = base price × (1 + sigmoid(3-day trend) × sensitivity × trend weight)
     enabled: true
 
     # Price reset strategy
-    # false: No reset (price changes continuously based on transaction volume)
-    # daily: Reset daily (first check after 00:00 resets to base price)
-    # weekly: Reset weekly (resets to base price on Monday)
-    # monthly: Reset monthly (resets to base price on the 1st)
+    # false: never reset (price keeps changing with trade volume)
+    # daily: reset to base price on the first check after 00:00 each day
+    # weekly: reset to base price every Monday
+    # monthly: reset to base price on the first day of each month
     restart: false
 
-    # Transaction activity algorithm configuration
+    # Trade activity algorithm settings
     activity:
       # Sensitivity (0.01-1.0)
-      # Higher values mean transaction volume changes have a greater impact on price
-      # Recommended value: 0.05-0.2
+      # Higher values make price changes react more strongly to trade volume
+      # Recommended: 0.05-0.2
       sensitivity: 0.1
 
-      # Daily transaction volume threshold
-      # Price fluctuations only start when daily volume reaches this value
-      # Prevents drastic fluctuations from a few transactions, recommended 1-10
+      # Daily trade volume threshold
+      # Price movement starts only when today's trade volume reaches this value
+      # Helps avoid extreme swings from very small numbers of trades; 1-10 is recommended
       daily_volume_threshold: 1
 
-    # Global price protection (final price limits)
+    # Global price guard rails
     price_protection:
-      # Whether to enable price floor
+      # Enable a minimum price floor
       enable_floor: true
 
-      # Minimum price multiplier (relative to base price)
-      # Algorithm dynamically adjusts based on price volatility:
-      # - High volatility (>30%): limits to 0.7-1.5x base price
-      # - Medium volatility (>10%): limits to 0.5-2.0x base price
-      # - Low volatility: uses configured multiplier value
+      # Minimum price multiplier relative to the base price
+      # The algorithm also adjusts dynamically based on price volatility:
+      # - High volatility (>30%): limited to 0.7x-1.5x of base price
+      # - Medium volatility (>10%): limited to 0.5x-2.0x of base price
+      # - Low volatility: uses the configured multiplier directly
       min_price_multiplier: 0.5
 
-      # Whether to enable price ceiling
+      # Enable a maximum price ceiling
       enable_ceiling: true
 
-      # Maximum price multiplier (relative to base price)
-      # Also dynamically adjusted based on volatility
+      # Maximum price multiplier relative to the base price
+      # Also adjusted dynamically based on volatility
       max_price_multiplier: 2.0
 
-# Item related configuration
+# Item-related settings
 items:
-  # Maximum stack size check
+  # Check the item's maximum stack size
   max_stack_size_check: true
-  # Minimum allowed quantity per listing
+  # Minimum quantity allowed in a single listing
   min_quantity: 1
-  # Maximum allowed quantity per listing
+  # Maximum quantity allowed in a single listing
   max_quantity: 2304
   # Price limits
   min_price: 0.01
   max_price: 10000000.0
 
 security:
-  # API key default validity period (days)
+  # Default API key validity period in days
   api_key_expiry_days: 7
-  # Password encryption strength (iterations, higher is more secure but more performance intensive)
+  # Password encryption cost (iterations). Higher is more secure but slower
   encryption_iterations: 10000
-  # Whether to enable email whitelist (only whitelisted domains can register)
+  # Enable email domain whitelist (only allowed domains can register)
   email_whitelist_enabled: false
-  # Email domain whitelist (domain only, without @)
+  # Allowed email domains (domain only, without @)
   # Example: ["qq.com", "gmail.com"]
   email_whitelist_domains:
     - "qq.com"
-  # Per-IP registration limit (max accounts per IP, 0 for unlimited)
+  # Registration limit per IP (0 = unlimited)
   registration_limit_per_ip: 2
-  # Whether to allow registration via web form (disabling allows only AuthMe registration and login)
+  # Allow registration through the Web form. When disabled, users must register/login through AuthMe
   allow_web_registration: true
 
 # AuthMe
 authme_login:
-  # Whether to enable AuthMe login (game name or email can log in. Account cannot be unbound)
+  # Enable AuthMe login (players can log in with either name or email; account unbinding is not allowed)
   enabled: false
-  # Email domain used when AuthMe hasn't registered an email (final email: <game_name>@<domain>)
+  # Email domain used when AuthMe has no registered email (final email: <player>@<domain>)
   fallback_email_domain: "authme.local"
-  # External AuthMe database (use when AuthMe is on a proxy/login server, not the same server as WebMarket)
-  # When enabled, does not require AuthMe plugin to be installed on this server; connects directly to remote AuthMe DB for authentication
-  # Only supports MySQL/MariaDB; password algorithms support SHA256 (AuthMe default) and bcrypt
+  # External AuthMe database (use this when AuthMe runs on a proxy/login server instead of this server)
+  # When enabled, AuthMe does not need to be installed locally; authentication is done directly against the remote AuthMe database
+  # MySQL/MariaDB only; password algorithms supported: SHA256 (AuthMe default) and bcrypt
   external_database:
     enabled: false
     host: "localhost"
@@ -560,43 +462,43 @@ authme_login:
     username_column: "username"   # Username column name
     email_column: "email"         # Email column name
 
-# ---------------The following generally do not need modification---------------
+# ---------------Usually no changes needed below---------------
 
-# Logging configuration
+# Logging settings
 logging:
-  log_market_actions: true # Whether to log market operations
-  log_auth_actions: true # Whether to log authentication operations
-  log_binding_actions: true # Whether to log binding/unbinding operations
-  log_official_shop_actions: true # Whether to log official shop operations
-  log_password_change: true # Whether to log password changes
-  log_auction_actions: true # Whether to log auction operations
-  log_buy_request_actions: true  # Whether to log buy request operations
-  log_retention_days: 30   # Log retention days
+  log_market_actions: true # Log market actions
+  log_auth_actions: true # Log authentication actions
+  log_binding_actions: true # Log binding / unbinding actions
+  log_official_shop_actions: true # Log official shop actions
+  log_password_change: true # Log password changes
+  log_auction_actions: true # Log auction actions
+  log_buy_request_actions: true  # Log buy request actions
+  log_retention_days: 30   # Log retention period in days
 
-# Cache configuration
+# Cache settings
 cache:
-  expire_after_write: 300 # Cache expiry time after write (seconds)
-  maximum_size: 100000 # Maximum cache size
+  expire_after_write: 300 # Cache expiration after write in seconds
+  maximum_size: 100000 # Maximum cache entry count
 
-# Leaderboard configuration
+# Leaderboard settings
 leaderboard:
-  fetch_interval_minutes: 10 # Leaderboard data cache/refresh interval (minutes). Requests within interval return cached results.
+  fetch_interval_minutes: 10 # Leaderboard cache / refresh interval in minutes; repeated requests within the interval return cached data
 
-# PlaceholderAPI configuration
+# PlaceholderAPI settings
 placeholderapi:
-  wealth_cache_seconds: 10 # Wealth leaderboard placeholder cache time (seconds), 0 means no caching, each request triggers an async refresh
+  wealth_cache_seconds: 10 # Wealth placeholder cache duration in seconds; 0 means no retained cache and every request triggers an async refresh
 
-# Binding related configuration
+# Binding settings
 binding:
-  code_expiry_minutes: 5 # Binding code validity period (minutes)
+  code_expiry_minutes: 5 # Binding code validity period in minutes
 
 rate_limiting:
-  # Global API rate limit (e.g., 100 requests per minute)
+  # Global API rate limit (for example: 100 requests per minute)
   global:
     requests: 100
     period: 1
     unit: MINUTES
-  # Rate limit for authentication endpoints (login/register)
+  # Rate limit for authentication endpoints (login / register)
   auth:
     requests: 5
     period: 1
@@ -604,20 +506,20 @@ rate_limiting:
 
 license:
   cloud:
-    # Whether to ignore HTTPS certificate errors
+    # Ignore HTTPS certificate validation
     ignore_ssl_errors: true
 
-# Update checker configuration
+# Update checker settings
 update_checker:
-  # Whether to enable update checking
+  # Enable update checking
   enabled: true
-  # Check interval (hours)
+  # Check interval in hours
   check_interval_hours: 48
-  # Whether to notify admins of updates when they join the game
+  # Notify admins about updates when they join
   notify_admins_on_join: true
 
 debug:
-  # Whether to enable SQL query logging (for debugging only)
+  # Log SQL queries (debug only)
   log_sql_queries: false
   # API request/response log level
   api_log_level: "INFO" # DEBUG, INFO, WARN, ERROR

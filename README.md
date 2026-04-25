@@ -1,6 +1,9 @@
-详细介绍|下载链接：https://www.minebbs.com/resources/webmarket.13231/
-
 # WebMarket
+
+**Read this in other languages: [English](README_EN.md)，[中文](README.md)。**
+
+[演示视频](https://www.bilibili.com/video/BV1fUD7BgEtL/) /
+[演示站点](https://sd.kurt6.cn)
 
 ## 免费版 / 付费版对比
 
@@ -64,9 +67,9 @@
 
   可通过以下两种方式：
 
-  ①通过手持物品指令/sg <数量> <单价>创建收购
+  ①通过手持物品指令/sg <数量> <单价>创建收购，可记录完整nbt数据（推荐）
 
-  ②直接在网页创建收购
+  ②直接在网页创建收购，缺点：只能创建基础属性物品（不含附魔、药水、lore信息等）
 
 ---
 
