@@ -6,8 +6,6 @@
 
 ## 1. 接入方式
 
-附属插件继续通过 Maven 坐标依赖 `webmarket-api`。运行时这部分由 WebMarket 主插件提供，所以 `scope` 应保持为 `provided`：
-
 ```xml
 <dependency>
     <groupId>cn.kurt6</groupId>
@@ -16,12 +14,6 @@
     <scope>provided</scope>
 </dependency>
 ```
-
-说明：
-
-- `webmarket-api` 只用于编译期拿到公开 SPI，不应该打进附属插件 jar。
-- 如果你手上的版本还没有发布到你当前可访问的 Maven 仓库，先把同版本 `webmarket-api` 安装或发布到可解析仓库，再保持上面的 `<dependency>` 写法不变。
-- 这套公开 SPI 当前只包含附属插件接入所需的两个类型：`WebMarketAddon` 和 `AddonDescriptor`。
 
 ## 2. 最小骨架
 
