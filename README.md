@@ -3,7 +3,9 @@
 **Read this in other languages: [English](README_EN.md)，[中文](README.md)。**
 
 [演示视频](https://www.bilibili.com/video/BV1fUD7BgEtL/) /
-[演示站点](https://sd.kurt6.cn)
+[演示站点](https://sd.kurt6.cn) /
+[附加插件列表](https://github.com/intellectmind/WebMarket/blob/main/%E9%99%84%E5%B1%9E%E6%8F%92%E4%BB%B6%E5%88%97%E8%A1%A8.md) /
+[附加插件开放文档](https://github.com/intellectmind/WebMarket/blob/main/webmarket-api%E5%BC%80%E6%94%BE%E6%96%87%E6%A1%A3.md)
 
 ## 免费版 / 付费版对比
 
@@ -356,11 +358,24 @@ api:
     key_password: "" # 私钥密码。留空时默认使用 key_store_password
     key_store_type: "PKCS12" # 证书库类型，例如 PKCS12 / JKS
     protocol: "TLS" # SSLContext 协议，一般保持 TLS 即可
+  proxy:
+    enabled: false # 是否信任反向代理/CDN传来的真实IP头。只有前面确实有代理时才开启
+    trust_all_proxies: false # 是否信任所有代理来源。不建议开启；开启后将直接按下面的头顺序解析真实IP
+    trusted_proxies:
+      - "127.0.0.1/32"
+      - "::1/128"
+    client_ip_headers:
+      - "CF-Connecting-IP"
+      - "True-Client-IP"
+      - "X-Forwarded-For"
+      - "X-Real-IP"
+      - "X-Original-Forwarded-For"
+      - "Forwarded"
 
 # 玩家身份（绑定）匹配模式
 player_identity:
   mode: "name" # uuid=按UUID识别（在线服推荐），name=按游戏名识别（离线服推荐）
-
+  
 # Web 前端配置
 # 如需自定义标签logo图标 图片可放在 plugins/WebMarket/web-assets/logo/logo.png
 web:
@@ -609,11 +624,6 @@ logging:
   log_buy_request_actions: true  # 是否记录求购操作
   log_retention_days: 30   # 日志保留天数
 
-# 缓存配置
-cache:
-  expire_after_write: 300 # 缓存写入后的过期时间（秒）
-  maximum_size: 100000 # 最大缓存数量
-
 # 排行榜配置
 leaderboard:
   fetch_interval_minutes: 10 # 排行榜数据缓存/刷新间隔（分钟）。在间隔内重复请求会直接返回缓存结果
@@ -658,3 +668,4 @@ debug:
   # API请求/响应日志级别
   api_log_level: "INFO" # DEBUG, INFO, WARN, ERROR
 ```
+v
