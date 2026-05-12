@@ -55,6 +55,7 @@ public class MyAddonPlugin extends JavaPlugin implements WebMarketAddon {
 - 背包 bridge：`cn.kurt6.webmarket.api.addon.inventory`
 - 用户 bridge：`cn.kurt6.webmarket.api.addon.user`
 - 平台 bridge：`cn.kurt6.webmarket.api.addon.platform`
+- 数据库 bridge：`cn.kurt6.webmarket.api.addon.database`
 - 经济 bridge：`cn.kurt6.webmarket.api.addon.economy`
 - 待领取 bridge：`cn.kurt6.webmarket.api.addon.pending`
 
@@ -73,6 +74,7 @@ InventorySnapshotBridge bridge =
 - `InventoryMutationBridge`
 - `WebMarketUserBridge`
 - `PlatformBridge`
+- `DatabaseBridge`
 - `EconomyBridge`
 - `PendingItemBridge`
 
@@ -83,7 +85,9 @@ InventorySnapshotBridge bridge =
 - 管理员删玩家物品：`InventoryMutationBridge`
 - 查用户资料/在线状态：`WebMarketUserBridge`
 - 查跨服状态：`PlatformBridge`
+- 复用宿主数据库连接：`DatabaseBridge`
 - 查余额：`EconomyBridge`
+- 查货币能力是否启用：`EconomyBridge`
 - 查待领取/触发领取：`PendingItemBridge`
 
 ## 6. 打包
