@@ -5,6 +5,9 @@
 [Demo video](https://www.youtube.com/watch?v=tvTJZuOYvno) /
 [Demo site](https://sd.kurt6.cn)
 
+[购买](https://www.minebbs.com/resources/webmarket-gui.13231/) /
+[Buy](https://www.patreon.com/Kurt5/posts/webmarket-plugin-154367931?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link)
+
 Powerful Minecraft web market plugin with a basic free edition and a full paid edition.
 
 Supports Paper / Folia / Spigot / Bukkit / Purpur on `1.20+`.
