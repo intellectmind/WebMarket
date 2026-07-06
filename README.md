@@ -7,6 +7,9 @@
 [附加插件列表](https://github.com/intellectmind/WebMarket/blob/main/%E9%99%84%E5%B1%9E%E6%8F%92%E4%BB%B6%E5%88%97%E8%A1%A8.md) /
 [附加插件开放文档](https://github.com/intellectmind/WebMarket/blob/main/webmarket-api%E5%BC%80%E6%94%BE%E6%96%87%E6%A1%A3.md)
 
+[购买](https://www.minebbs.com/resources/webmarket-gui.13231/) /
+[Buy](https://www.patreon.com/Kurt5/posts/webmarket-plugin-154367931?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=postshare_creator&utm_content=join_link)
+
 ## 免费版 / 付费版对比
 
 | 功能                  | 免费版 | 付费版 |
